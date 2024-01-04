@@ -1,0 +1,31 @@
+.table {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  .input {
+    width: 250px;
+    padding: 4px 7px;
+    border: 1px solid rgb(174, 174, 174);
+    border-radius: 3px;
+  }
+  .label {
+    background-color: transparent;
+  }
+  .img {
+    background-color: transparent;
+  }
+  .btn-submit {
+    background-color: #0d6efd;
+    color: #fff;
+    outline: none;
+    border: 1px solid #0d6efd;
+    padding: 4px 20px;
+    border-radius: 4px;
+  }
+  .btn-submit:hover{
+    background-color: #015eea;
+  }
+  .form-control{
+    resize: none;
+  }
+}

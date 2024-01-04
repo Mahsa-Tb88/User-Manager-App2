@@ -1,0 +1,18 @@
+.page {
+  .header {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 20px;
+  }
+
+  .btn-group {
+    background-color: #0d6efd;
+    padding: 5px 10px;
+    color: #fff;
+
+    .btnAdd {
+      border: none;
+      outline: none;
+      background-color: transparent;
+    }
+  }
+}
