@@ -1,137 +1,113 @@
 export const usersData = [
   {
     id: 1,
-    firstname: "مجتبی",
-    lastname: "احمدی",
-    phone: "09123456789",
+    firstname: "Jack",
+    lastname: "Smith",
+    phone: "77823456789",
     province: 3,
   },
 
   {
     id: 2,
-    firstname: "حمید",
-    lastname: "اظهری",
-    phone: "09123456789",
+    firstname: "Hamid",
+    lastname: "Azhari",
+    phone: "9913456789",
     province: 1,
   },
 
   {
     id: 3,
-    firstname: "سعید",
-    lastname: "حیدری",
-    phone: "09123456789",
+    firstname: "Saeid",
+    lastname: "Heidari",
+    phone: "09923456789",
     province: 7,
   },
 
   {
     id: 4,
-    firstname: "سمانه",
-    lastname: "حمیدی",
-    phone: "09123456789",
-    province: 12,
+    firstname: "Samaneh",
+    lastname: "Hamidi",
+    phone: "09923456789",
+    province:9,
   },
 
   {
     id: 5,
-    firstname: "سوسن",
-    lastname: "توحیدی",
-    phone: "09123456789",
-    province: 30,
+    firstname: "Sousan",
+    lastname: "Todidi",
+    phone: "09823456789",
+    province: 3,
   },
 
   {
     id: 6,
-    firstname: "فرهاد",
-    lastname: "وحیدی",
-    phone: "09123456789",
-    province: 28,
+    firstname: "Farhad",
+    lastname: "Vahedi",
+    phone: "09823456789",
+    province: 5,
   },
 
   {
     id: 7,
-    firstname: "علی",
-    lastname: "محمدی",
-    phone: "09123456789",
-    province: 22,
+    firstname: "Ali",
+    lastname: "Mohammadi",
+    phone: "09923456789",
+    province: 7,
   },
 
   {
     id: 8,
-    firstname: "کامران",
-    lastname: "اکبری",
-    phone: "09123456789",
+    firstname: "Kamran",
+    lastname: "Babaei",
+    phone: "09923456789",
     province: 6,
   },
 
   {
     id: 9,
-    firstname: "ناهید",
-    lastname: "درویشی",
-    phone: "09123456789",
+    firstname: "Nahid",
+    lastname: "Darvishi",
+    phone: "09323456789",
     province: 9,
   },
 
   {
     id: 10,
-    firstname: "زینب",
-    lastname: "رضایی",
-    phone: "09123456789",
-    province: 12,
+    firstname: "Zeinab",
+    lastname: "Rezaei",
+    phone: "09623456789",
+    province: 8,
   },
 
   {
     id: 11,
-    firstname: "عباس",
-    lastname: "ماجدی",
-    phone: "09123456789",
-    province: 11,
+    firstname: "Abbas",
+    lastname: "Majedi",
+    phone: "09923456789",
+    province: 9,
   },
 
   {
     id: 12,
-    firstname: "ابراهیم",
-    lastname: "حسنی",
-    phone: "09123456789",
+    firstname: "Ebrahim",
+    lastname: "Hasani",
+    phone: "09923456789",
     province: 1,
   },
 
   {
     id: 13,
-    firstname: "حسن",
-    lastname: "دهقان",
+    firstname: "Hasan",
+    lastname: "Dehghan",
     phone: "09123456789",
     province: 6,
   },
 
   {
     id: 14,
-    firstname: "سیروس",
-    lastname: "فرهادی",
+    firstname: "Zahra",
+    lastname: "Farhadi",
     phone: "09123456789",
     province: 5,
-  },
-
-  {
-    id: 15,
-    firstname: "کیوان",
-    lastname: "خوندل",
-    phone: "09123456789",
-    province: 4,
-  },
-
-  {
-    id: 16,
-    firstname: "نگار",
-    lastname: "پاشایی",
-    phone: "09123456789",
-    province: 2,
-  },
-
-  {
-    id: 17,
-    firstname: "فیروز",
-    lastname: "شیرازی",
-    phone: "09123456789",
-    province: 1,
   },
 ];

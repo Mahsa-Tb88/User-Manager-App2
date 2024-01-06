@@ -58,7 +58,7 @@ export default function TableUser() {
           <label className="mb-1 label">Province</label>
           <select className="input">
             {listOfProvince.map((province) => (
-              <option>{province}</option>
+              <option value={province}>{province}</option>
             ))}
           </select>
         </div>
@@ -80,7 +80,7 @@ export default function TableUser() {
       </div>
       <div className="d-flex flex-column justify-content-start align-items-start mb-4">
         <label>Describe</label>
-        <textarea className="form-control" type="text" ></textarea>
+        <textarea className="form-control" type="text"></textarea>
       </div>
       <div>
         <button type="submit" className="btn-submit">

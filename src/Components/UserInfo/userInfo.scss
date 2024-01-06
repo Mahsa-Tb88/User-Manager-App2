@@ -1,0 +1,27 @@
+.userinfo {
+  .btn-edit {
+    outline: none;
+    border: 1px solid #dc3545;
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 3px;
+    padding: 5px 8px;
+  }
+
+  .btn-delete {
+    outline: none;
+    border: 1px solid #0d6efd;
+    background-color: #0d6efd;
+    color: #fff;
+    border-radius: 3px;
+    padding: 5px 8px;
+  }
+
+  .section {
+    width: 250px;
+    text-align: left;
+    .desc {
+      margin-left: 0 !important;
+    }
+  }
+}
