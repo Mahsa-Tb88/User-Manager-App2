@@ -11,11 +11,15 @@ export default function Page({
   setInfoShowUser,
   selectedUser,
   setSelectedUser,
+  editHandler,
+  editUser,
+  setEditUser,
 }) {
   function handleButton() {
     setAddUserClicked(!addUserClicked);
     setInfoShowUser({ isShow: false, id: infoShowUser.id });
     setSelectedUser({ id: 0 });
+    setEditUser({ status: false, id: editUser.id });
   }
 
   return (
@@ -30,10 +34,18 @@ export default function Page({
         <h2 className="fs-4">Home</h2>
       </header>
       <div className="text-center mt-5">
-        {infoShowUser.isShow ? (
-          <UserInfo selectedUser={selectedUser} />
+        {editUser.status ? (
+          <TableUser editUser={editUser} />
+        ) : infoShowUser.isShow ? (
+          <UserInfo
+            selectedUser={selectedUser}
+            editHandler={editHandler}
+            infoShowUser={infoShowUser}
+            setInfoShowUser={setInfoShowUser}
+            setAddUserClicked={setAddUserClicked}
+          />
         ) : addUserClicked ? (
-          <TableUser />
+          <TableUser editUser={editUser} />
         ) : (
           <DefaultPage />
         )}

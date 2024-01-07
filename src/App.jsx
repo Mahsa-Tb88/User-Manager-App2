@@ -7,13 +7,13 @@ export default function App() {
   const [infoShowUser, setInfoShowUser] = useState({ isShow: false, id: null });
   const [addUserClicked, setAddUserClicked] = useState(false);
   const [selectedUser, setSelectedUser] = useState({ id: 0 });
-  const [editUser, setEditUser] = useState(false);
+  const [editUser, setEditUser] = useState({ status: false, id: 0 });
 
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    const users = getAllUsers();
-    setUsers(users);
-  }, []);
+    const allUsers = getAllUsers();
+    setUsers(allUsers);
+  }, [users]);
 
   function showUser(id) {
     console.log(id);
@@ -21,6 +21,10 @@ export default function App() {
     setAddUserClicked(true);
     const user = users.find((user) => user.id == id);
     setSelectedUser(user);
+  }
+  function editHandler(id) {
+    console.log(id);
+    setEditUser({ status: true, id: id });
   }
   return (
     <div className="">
@@ -37,6 +41,9 @@ export default function App() {
           setInfoShowUser={setInfoShowUser}
           selectedUser={selectedUser}
           setSelectedUser={setSelectedUser}
+          editHandler={editHandler}
+          editUser={editUser}
+          setEditUser={setEditUser}
         />
       </div>
     </div>

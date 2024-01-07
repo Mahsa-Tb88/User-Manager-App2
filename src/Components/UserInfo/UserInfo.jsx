@@ -1,6 +1,13 @@
 import React from "react";
 import "./userInfo.scss";
-export default function UserInfo({ selectedUser }) {
+import { deleteUser } from "../../utils/storaje";
+export default function UserInfo({
+  selectedUser,
+  editHandler,
+  infoShowUser,
+  setInfoShowUser,
+  setAddUserClicked,
+}) {
   const imageUser = "https://i.pravatar.cc/300?img=" + selectedUser.id;
   const listOfProvince = [
     "British Columbia",
@@ -14,8 +21,12 @@ export default function UserInfo({ selectedUser }) {
     "Quebec",
     "Saskatchewan",
   ];
-
-  function editHandler(id) {}
+  function deleteHandler(id) {
+    // console.log("delete", id);
+    deleteUser(id);
+    setInfoShowUser({ isShow: false, id });
+    setAddUserClicked(false);
+  }
   return (
     <div className="w-75 userinfo d-flex flex-column justify-content-start align-items-start">
       <div className="d-flex justify-content-start align-items-center">
@@ -25,7 +36,14 @@ export default function UserInfo({ selectedUser }) {
             {selectedUser.firstname} {selectedUser.lastname}
           </p>
           <div>
-            <button className="btn-edit me-3">Delete User</button>
+            <button
+              className="btn-edit me-3"
+              onClick={() => {
+                deleteHandler(selectedUser.id);
+              }}
+            >
+              Delete User
+            </button>
             <button
               className="btn-delete"
               onClick={() => editHandler(selectedUser.id)}

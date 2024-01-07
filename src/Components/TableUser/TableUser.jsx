@@ -1,8 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "./tableUser.scss";
-export default function TableUser() {
-  const { register, handleSubmit } = useForm();
+import { getAllUsers } from "../../utils/storaje";
+export default function TableUser({ editUser }) {
   const listOfProvince = [
     "British Columbia",
     "Alberta",
@@ -15,7 +15,25 @@ export default function TableUser() {
     "Quebec",
     "Saskatchewan",
   ];
-  function onSubmit(data) {}
+  const users = getAllUsers();
+  const user = editUser.status
+    ? users.find((user) => user.id == editUser.id)
+    : "";
+  const imgsrc =
+    "https://i.pravatar.cc/300?img=" + editUser.status ? user.id : "";
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      name: editUser.status ? user.firstname : "",
+      family: editUser.status ? user.lastname : "",
+      phone: editUser.status ? user.phone : "",
+      province: editUser.status ? listOfProvince[user.province] : "",
+      image: editUser.status ? "https://i.pravatar.cc/300?img=" + user.id : "",
+    },
+  });
+
+  function onSubmit(data) {
+    console.log(data);
+  }
   return (
     <form className="table w-75 m-auto" onSubmit={handleSubmit(onSubmit)}>
       <div className="d-flex justify-content-between align-items-center mb-3 ">
@@ -56,9 +74,14 @@ export default function TableUser() {
         </div>
         <div className="d-flex flex-column justify-content-center align-items-start ">
           <label className="mb-1 label">Province</label>
-          <select className="input">
+          <select
+            className="input"
+            {...register("province", {
+              required: "Select the province",
+            })}
+          >
             {listOfProvince.map((province) => (
-              <option value={province}>{province}</option>
+              <option key={province}>{province}</option>
             ))}
           </select>
         </div>
@@ -66,16 +89,14 @@ export default function TableUser() {
       <div className="d-flex flex-column justify-content-start align-items-start mb-4">
         <div className="d-flex  justify-content-center align-items-center">
           <label className="mb-1 label">Addrees of Image</label>
-          <img
-            src="https://i.pravatar.cc/300?img="
-            width="40"
-            className="rounded-circle img"
-          />
+          <img src={imgsrc} width="40" className="rounded-circle img" />
         </div>
         <input
           type="text"
           className="w-100 input"
-          value="https://i.pravatar.cc/300?img="
+          {...register("image", {
+            required: "Select the image",
+          })}
         />
       </div>
       <div className="d-flex flex-column justify-content-start align-items-start mb-4">
