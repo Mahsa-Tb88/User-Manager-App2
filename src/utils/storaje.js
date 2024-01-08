@@ -3,7 +3,11 @@ import { usersData } from "./data";
 function getAllUsers() {
   try {
     // localStorage.users = JSON.stringify(usersData);
-    return JSON.parse(localStorage.users);
+    if (localStorage.users) {
+      return JSON.parse(localStorage.users);
+    } else {
+      return [];
+    }
   } catch (e) {
     [];
   }
