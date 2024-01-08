@@ -34,6 +34,7 @@ export default function TableUser({
       phone: editUser.status ? user.phone : "",
       province: editUser.status ? listOfProvince[user.province] : "",
       image: editUser.status ? user.img : "https://i.pravatar.cc/300?img=",
+      desc: editUser.status ? user.desc : "",
     },
   });
   const { errors } = formState;
@@ -55,7 +56,8 @@ export default function TableUser({
         data.family,
         data.phone,
         listOfProvince.indexOf(data.province),
-        data.image
+        data.image,
+        data.desc
       );
       setSelectedUpdateUser({
         status: true,
@@ -66,6 +68,7 @@ export default function TableUser({
           phone: data.phone,
           province: listOfProvince.indexOf(data.province),
           img: data.image,
+          desc: data.desc,
         },
       });
       toast.success("Successfully Update");
@@ -75,7 +78,8 @@ export default function TableUser({
         data.family,
         data.phone,
         listOfProvince.indexOf(data.province),
-        data.image
+        data.image,
+        data.desc
       );
       toast.success("Successfully Add New User");
     }
@@ -182,7 +186,11 @@ export default function TableUser({
       </div>
       <div className="d-flex flex-column justify-content-start align-items-start mb-4">
         <label>Describe</label>
-        <textarea className="form-control" type="text"></textarea>
+        <textarea
+          className="form-control"
+          type="text"
+          {...register("desc")}
+        ></textarea>
       </div>
       <div>
         <button type="submit" className="btn-submit">

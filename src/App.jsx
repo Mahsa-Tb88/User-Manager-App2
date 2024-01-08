@@ -25,6 +25,7 @@ export default function App() {
     const user = users.find((user) => user.id == id);
     setSelectedUser(user);
     setSelectedUpdateUser({ status: false, user: {} });
+    setEditUser({ status: false, id: null });
   }
   function editHandler(id) {
     setEditUser({ status: true, id });
@@ -35,6 +36,7 @@ export default function App() {
         <UserList
           showUser={showUser}
           users={users}
+          setUsers={setUsers}
           selectedUser={selectedUser}
         />
         <Page

@@ -24,7 +24,7 @@ export default function Page({
     setSelectedUser({ id: 0 });
     setEditUser({ status: false, id: editUser.id });
   }
-
+  console.log(infoShowUser.isShow, editUser.status);
   return (
     <div className=" w-75 page p-4">
       <header className="d-flex justify-content-between align-items-center header">
@@ -37,7 +37,7 @@ export default function Page({
         <h2 className="fs-4">Home</h2>
       </header>
       <div className="text-center mt-5">
-        {editUser.status ? (
+        {editUser.status && editUser.id == infoShowUser.id ? (
           <TableUser
             editUser={editUser}
             setUsers={setUsers}
