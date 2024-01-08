@@ -9,6 +9,7 @@ export default function UserList({ showUser, users, selectedUser }) {
       </div>
       <div>
         <h2 className="fs-3 py-5">User List</h2>
+        {users.length == 0 ? <p className="bg-primary text-white p-2 fs-5">There is no user</p> : ""}
         {users.map((user) => (
           <User
             showUser={showUser}

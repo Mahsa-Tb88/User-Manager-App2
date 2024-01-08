@@ -19,30 +19,32 @@ function deleteUser(id) {
   saveUsers(filterdUsers);
 }
 
-function addTasks(firstname, lastname, phone, province) {
-  const tasks = getAllUsers();
-  let id;
+function addUsers(firstname, lastname, phone, province, img) {
+  const users = getAllUsers();
+  let id = null;
   if (users.length) {
     id = users[users.length - 1].id + 1;
   } else {
     id = 1;
   }
   const newUser = {
+    id,
     firstname,
     lastname,
     phone,
     province,
+    img,
   };
   users.push(newUser);
   saveUsers(users);
   return;
 }
 
-function updateUsers(id, firstname, lastname, phone, province) {
-  let users = getAllTasks();
+function updateUsers(id, firstname, lastname, phone, province, img) {
+  let users = getAllUsers();
   users = users.map((user) => {
     if (user.id == id) {
-      return { id, firstname, lastname, phone, province };
+      return { id, firstname, lastname, phone, province, img };
     } else {
       return user;
     }
@@ -51,4 +53,4 @@ function updateUsers(id, firstname, lastname, phone, province) {
   saveUsers(users);
 }
 
-export { getAllUsers, saveUsers, deleteUser, addTasks, updateUsers };
+export { getAllUsers, saveUsers, deleteUser, addUsers, updateUsers };

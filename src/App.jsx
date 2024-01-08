@@ -2,18 +2,21 @@ import React, { useEffect, useState } from "react";
 import Page from "./Components/Page/Page";
 import UserList from "./Components/UserList/UserList";
 
-import { getAllUsers } from "./utils/storaje";
+import { getAllUsers, updateUsers } from "./utils/storaje";
 export default function App() {
   const [infoShowUser, setInfoShowUser] = useState({ isShow: false, id: null });
   const [addUserClicked, setAddUserClicked] = useState(false);
   const [selectedUser, setSelectedUser] = useState({ id: 0 });
   const [editUser, setEditUser] = useState({ status: false, id: 0 });
-
+  const [selectedUpdateUser, setSelectedUpdateUser] = useState({
+    status: false,
+    user: {},
+  });
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const allUsers = getAllUsers();
     setUsers(allUsers);
-  }, [users]);
+  }, []);
 
   function showUser(id) {
     console.log(id);
@@ -21,10 +24,10 @@ export default function App() {
     setAddUserClicked(true);
     const user = users.find((user) => user.id == id);
     setSelectedUser(user);
+    setSelectedUpdateUser({ status: false, user: {} });
   }
   function editHandler(id) {
-    console.log(id);
-    setEditUser({ status: true, id: id });
+    setEditUser({ status: true, id });
   }
   return (
     <div className="">
@@ -44,6 +47,9 @@ export default function App() {
           editHandler={editHandler}
           editUser={editUser}
           setEditUser={setEditUser}
+          setUsers={setUsers}
+          selectedUpdateUser={selectedUpdateUser}
+          setSelectedUpdateUser={setSelectedUpdateUser}
         />
       </div>
     </div>

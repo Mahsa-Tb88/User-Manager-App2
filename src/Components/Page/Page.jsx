@@ -14,6 +14,9 @@ export default function Page({
   editHandler,
   editUser,
   setEditUser,
+  setUsers,
+  setSelectedUpdateUser,
+  selectedUpdateUser,
 }) {
   function handleButton() {
     setAddUserClicked(!addUserClicked);
@@ -35,7 +38,15 @@ export default function Page({
       </header>
       <div className="text-center mt-5">
         {editUser.status ? (
-          <TableUser editUser={editUser} />
+          <TableUser
+            editUser={editUser}
+            setUsers={setUsers}
+            setEditUser={setEditUser}
+            setAddUserClicked={setAddUserClicked}
+            addUserClicked={addUserClicked}
+            setSelectedUpdateUser={setSelectedUpdateUser}
+            selectedUpdateUser={selectedUpdateUser}
+          />
         ) : infoShowUser.isShow ? (
           <UserInfo
             selectedUser={selectedUser}
@@ -43,9 +54,19 @@ export default function Page({
             infoShowUser={infoShowUser}
             setInfoShowUser={setInfoShowUser}
             setAddUserClicked={setAddUserClicked}
+            setUsers={setUsers}
+            selectedUpdateUser={selectedUpdateUser}
           />
         ) : addUserClicked ? (
-          <TableUser editUser={editUser} />
+          <TableUser
+            editUser={editUser}
+            setUsers={setUsers}
+            setEditUser={setEditUser}
+            setAddUserClicked={setAddUserClicked}
+            addUserClicked={addUserClicked}
+            setSelectedUpdateUser={setSelectedUpdateUser}
+            selectedUpdateUser={selectedUpdateUser}
+          />
         ) : (
           <DefaultPage />
         )}
@@ -58,8 +79,8 @@ function DefaultPage() {
   return (
     <div>
       <h1>Welcome to User Manager App</h1>
-      <p className="mt-5">Use Button above For Adding User</p>
-      <p>Use Right Menu For Observing and Editing User</p>
+      <p className="mt-5">Use Above Button For Adding User</p>
+      <p>Use Left Menu For Observing and Editing User</p>
     </div>
   );
 }

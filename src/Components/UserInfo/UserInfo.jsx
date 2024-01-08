@@ -1,14 +1,15 @@
 import React from "react";
 import "./userInfo.scss";
-import { deleteUser } from "../../utils/storaje";
+import { deleteUser, getAllUsers } from "../../utils/storaje";
+import { toast } from "react-toastify";
 export default function UserInfo({
   selectedUser,
   editHandler,
-  infoShowUser,
   setInfoShowUser,
   setAddUserClicked,
+  setUsers,
+  selectedUpdateUser,
 }) {
-  const imageUser = "https://i.pravatar.cc/300?img=" + selectedUser.id;
   const listOfProvince = [
     "British Columbia",
     "Alberta",
@@ -26,14 +27,29 @@ export default function UserInfo({
     deleteUser(id);
     setInfoShowUser({ isShow: false, id });
     setAddUserClicked(false);
+    const newUsers = getAllUsers();
+    setUsers(newUsers);
+    toast.success("Successfully Delete!");
   }
   return (
     <div className="w-75 userinfo d-flex flex-column justify-content-start align-items-start">
       <div className="d-flex justify-content-start align-items-center">
-        <img src={imageUser} className="w-25 rounded-circle me-5" />
+        <img
+          src={
+            selectedUpdateUser.status
+              ? selectedUpdateUser.user.img
+              : selectedUser.img
+          }
+          className="w-25 rounded-circle me-5"
+        />
         <div>
           <p className="fs-4 mb-4">
-            {selectedUser.firstname} {selectedUser.lastname}
+            {selectedUpdateUser.status
+              ? selectedUpdateUser.user.firstname
+              : selectedUser.firstname}{" "}
+            {selectedUpdateUser.status
+              ? selectedUpdateUser.user.lastname
+              : selectedUser.lastname}
           </p>
           <div>
             <button
@@ -56,17 +72,27 @@ export default function UserInfo({
       <div className="mt-4  d-flex flex-column justify-content-start align-items-start">
         <div className="p-2 border-bottom section">
           <span className="fs-5">Phone:</span>
-          <span className="fs-5 ms-4">{selectedUser.phone}</span>
+          <span className="fs-5 ms-4">
+            {selectedUpdateUser.status
+              ? selectedUpdateUser.user.phone
+              : selectedUser.phone}
+          </span>
         </div>
         <div className="p-2 border-bottom section ">
           <span className="fs-5">Province:</span>
           <span className="fs-5 ms-4">
-            {listOfProvince[selectedUser.province]}
+            {
+              listOfProvince[
+                selectedUpdateUser.status
+                  ? selectedUpdateUser.user.province
+                  : selectedUser.province
+              ]
+            }
           </span>
         </div>
         <div className="p-2 border-bottom section ">
           <span className="fs-5">Description:</span>
-          <p className="mt-2 ms-4 desc">lorem50 mamamamamamam</p>
+          <p className="mt-2 ms-4 desc">Nothing to say!</p>
         </div>
       </div>
     </div>
