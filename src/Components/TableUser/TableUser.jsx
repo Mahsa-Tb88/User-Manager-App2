@@ -89,7 +89,8 @@ export default function TableUser({
     setEditUser({ status: false, id: editUser.id });
     setAddUserClicked(false);
   }
-  const imgsrc = editUser.status ? user.img : watch("image");
+  const imgsrc = watch("image");
+  // const imgsrc = editUser.status ? user.img : watch("image");
   return (
     <form className="table w-75 m-auto" onSubmit={handleSubmit(onSubmit)}>
       <div className="d-flex justify-content-between align-items-center mb-3 ">

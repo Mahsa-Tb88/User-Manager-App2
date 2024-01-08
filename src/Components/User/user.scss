@@ -3,13 +3,13 @@
   .name,
   .family {
     font-size: 17px;
-    // color: rgb(58, 57, 57);
   }
 }
-.userSelected {
-  background-color: #e77f9e;
-  color: #fff !important;
-}
+
 .user:hover {
   background-color: rgb(124, 183, 249);
+}
+.userSelected {
+  background-color: #e77f9e !important;
+  color: #fff !important;
 }

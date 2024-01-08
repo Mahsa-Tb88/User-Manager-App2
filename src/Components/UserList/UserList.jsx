@@ -11,7 +11,7 @@ export default function UserList({ showUser, users, selectedUser, setUsers }) {
         user.firstname.toLowerCase().includes(search) ||
         user.lastname.toLowerCase().includes(search)
     );
-    setUsers(filterUsers );
+    setUsers(filterUsers);
   }
   return (
     <div className="w-25 text-center py-4 userList">
